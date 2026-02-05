@@ -8,6 +8,10 @@ Cross-platform Flutter app for classroom attendance, student contacts, and sched
 - **Schedule viewer**: Opens stored schedule PDF from app-local storage; placeholder if missing.
 - **Update Files**: Replace schedule PDF and student list (.xlsx) from device; stored locally and used by Attendance/Contacts/Schedule.
 - **Persistent storage**: Uses app documents directory for schedule.pdf and student_list.xlsx. Asset is only a fallback; sensitive files are git-ignored.
+<img width="365" height="657" alt="image" src="https://github.com/user-attachments/assets/c199e9b8-45c5-4995-8c59-cb7f55ac34ae" />
+<img width="361" height="178" alt="image" src="https://github.com/user-attachments/assets/c0363300-1570-49c7-a013-e1969c0a6cc8" />
+<img width="361" height="773" alt="image" src="https://github.com/user-attachments/assets/29a01837-f77e-4c73-9d6c-4269559bcfe2" />
+<img width="396" height="782" alt="image" src="https://github.com/user-attachments/assets/c22e6cbe-63ca-4030-8a19-efc6591d52f4" />
 
 ## Project Structure (high level)
 - `lib/main.dart` — all screens and data handling.
