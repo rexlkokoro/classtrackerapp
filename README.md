@@ -1,16 +1,50 @@
-# attendance_app
+# Attendance App
 
-A new Flutter project.
+Cross-platform Flutter app for classroom attendance, student contacts, and schedule viewing. Works on Android, iOS, and desktop (Windows enabled).
 
-## Getting Started
+## Features
+- **Attendance flow**: Setup (subject + class start time) → mark Present/Absent (defaults Absent) from read-only student list → export teacher-ready PDF (S.No, Roll, Name, Admission, Status, signature line).
+- **Student Contacts**: Searchable list (name, roll, admission, phone). Long-press copies phone number.
+- **Schedule viewer**: Opens stored schedule PDF from app-local storage; placeholder if missing.
+- **Update Files**: Replace schedule PDF and student list (.xlsx) from device; stored locally and used by Attendance/Contacts/Schedule.
+- **Persistent storage**: Uses app documents directory for schedule.pdf and student_list.xlsx. Asset is only a fallback; sensitive files are git-ignored.
 
-This project is a starting point for a Flutter application.
+## Project Structure (high level)
+- `lib/main.dart` — all screens and data handling.
+- `assets/app_icon.png` — launcher icon source (processed via `flutter_launcher_icons`).
+- `database/` — kept empty; student list is loaded from app storage or an optional asset (not tracked in git).
 
-A few resources to get you started if this is your first Flutter project:
+## Setup & Run
+1) Install Flutter SDK and platform deps.
+2) Fetch packages:
+   ```
+   flutter pub get
+   ```
+3) Run on device/emulator:
+   ```
+   flutter run -d <device>
+   ```
+   (e.g., `emulator-5554` for Android, `windows` for desktop)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Updating Data Files In-App
+- From Home → **Update Files** tile:
+  - **Update Schedule PDF**: pick a `.pdf`; saved to app storage and used by Schedule screen.
+  - **Update Student List (.xlsx)**: pick `.xlsx`; saved to app storage and used by Attendance & Contacts.
+- Student list expected columns (header row skipped): `S.No | Roll Number | Name | SBU Admission Number | Phone`.
+- If no stored files, Attendance/Contacts will error with a prompt to upload; Schedule shows placeholder.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Build APK (release)
+```
+flutter build apk --release
+```
+Output: `build/app/outputs/flutter-apk/app-release.apk`
+
+## Launcher Icons
+Source icon: `assets/app_icon.png`. To regenerate after changing the icon:
+```
+flutter pub run flutter_launcher_icons
+```
+
+## Notes
+- Sensitive data files are git-ignored: `/database/*.xlsx`, `/schedule.pdf`.
+- No cloud sync; all files are local to the device.
