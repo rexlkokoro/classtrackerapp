@@ -44,6 +44,7 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Data files (local only)
+# Sensitive data files (exclude all others but allow the header-only template)
 /database/*.xlsx
+!/database/class_list.xlsx
 /schedule.pdf

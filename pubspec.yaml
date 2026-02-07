@@ -26,8 +26,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - database/class_list.xlsx
 
 flutter_icons:
   android: true
   ios: true
   image_path: assets/app_icon.png
+  android_adaptive_icon_background: '#FFFFFF'
+  android_adaptive_icon_foreground: assets/app_icon.png
